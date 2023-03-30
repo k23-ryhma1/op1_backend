@@ -1,17 +1,25 @@
 package k23op1.op1_backend.domain;
 
+import java.util.List;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class Manufacturer {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     
     private String name;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "manufacturer")
+    private List<Clothing> clothings;
 
     public Manufacturer() {
         super();
@@ -36,6 +44,14 @@ public class Manufacturer {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+    public List<Clothing> getClothings() {
+		return clothings;
+	}
+
+	public void setClothings(List<Clothing> clothings) {
+		this.clothings = clothings;
 	}
 
     @Override
