@@ -4,6 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Clothing {
@@ -14,13 +15,15 @@ public class Clothing {
     private String type;
     private String size;
     private double price;
-    private String manufacturer;
+
+    @ManyToOne
+    private Manufacturer manufacturer;
 
     public Clothing() {
         super();
     }
 
-    public Clothing(String type, String size, double price, String manufacturer) {
+    public Clothing(String type, String size, double price, Manufacturer manufacturer) {
         super();
         this.type = type;
         this.size = size;
@@ -60,18 +63,17 @@ public class Clothing {
 		this.price = price;
     }
 
-    public String getManufacturer() {
+    public Manufacturer getManufacturer() {
 		return manufacturer;
 	}
 
-	public void setManufacturer(String manufacturer) {
+	public void setManufacturer(Manufacturer manufacturer) {
 		this.manufacturer = manufacturer;
 	}
 
     @Override
 	public String toString() {
-		return "Clothing [id=" + id + ", type=" + type + ", size=" + size + ", price=" + price + ", manufacturer="
-			+ manufacturer + "]";
+		return "Clothing [id=" + id + ", type=" + type + ", size=" + size + ", price=" + price + "]";
 	}
 
 }
