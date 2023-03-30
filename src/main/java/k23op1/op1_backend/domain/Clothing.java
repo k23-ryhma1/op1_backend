@@ -8,6 +8,7 @@ import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Clothing {
+    
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
