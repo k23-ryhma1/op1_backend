@@ -1,9 +1,32 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
+<link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
 <head>
 	<title>Ompun ja Ranen kauppa</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
+
 <body>
+	<div>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Type</th>
+					<th>Size</th>
+					<th>Price</th>
+					<th>Manufacturer</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="clothing:${clothes}">
+					<td th:text="${clothing.type}">
+					<td th:text="${clothing.size}">
+					<td th:text="${clothing.price}">
+					<td th:text="${clothing.manufacturer.name}"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
 </body>
+
 </html>

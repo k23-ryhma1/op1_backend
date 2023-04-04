@@ -16,8 +16,8 @@ public class ClothingController {
     private ManufacturerRepository manufacturerRepository;
 
     @RequestMapping("/")
-    public String index(Model model) {
-        model.addAttribute("list", clothingRepository.findAll());
-        return "/";
+    public String clothingList(Model model) {
+        model.addAttribute("clothes", clothingRepository.findAll());
+        return "index";
     } 
 }
