@@ -16,14 +16,15 @@
 			<input type="text" th:field="*{size}" />
 			</div>
 			<div>
-			<!--nyt ei hyväksy desimaaleja-->
 		  	<label for="price">Price</label>
-			<input type="number" min="1" th:field="*{price}" />
+			<input type="text" th:field="*{price}" />
 			</div>
 			<div>
-			<!--muutetaan valmistajalistaukseksi, josta valitaan -->
 			<label for="manufacturer">Manufacturer</label>
-			<input type="text" th:field="*{manufacturer}" /> 
+			<select th:field="*{manufacturer}">
+				<option th:each="manufacturer: ${manufacturers}" th:value="${manufacturer.id}"
+				th:text="${manufacturer.name}"></option>
+			</select>
 			</div>
 			<div>
 			<input type="submit" value="Save"></input>
