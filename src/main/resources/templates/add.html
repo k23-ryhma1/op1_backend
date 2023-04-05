@@ -1,34 +1,40 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
+<link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
+
 <head>
 	<title>Ompun ja Ranen kauppa</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
+
 <body>
-	<div>
+	<div class="text-center">
+		<h1>Add clothing</h1>
 		<form th:object="${clothes}" th:action="@{save}" action="#" method="post">
 			<div>
-		  	<label for="type">Type</label>
-			<input type="text" th:field="*{type}" />
+				<label for="type">Type</label>
+				<input type="text" th:field="*{type}" />
 			</div>
 			<div>
-		  	<label for="Size">Size</label>
-			<input type="text" th:field="*{size}" />
+				<label for="Size">Size</label>
+				<input type="text" th:field="*{size}" />
 			</div>
 			<div>
-		  	<label for="price">Price</label>
-			<input type="text" th:field="*{price}" />
+				<label for="price">Price</label>
+				<input type="text" th:field="*{price}" />
 			</div>
 			<div>
-			<label for="manufacturer">Manufacturer</label>
-			<select th:field="*{manufacturer}">
-				<option th:each="manufacturer: ${manufacturers}" th:value="${manufacturer.id}"
-				th:text="${manufacturer.name}"></option>
-			</select>
+				<label for="manufacturer">Manufacturer</label>
+				<select th:field="*{manufacturer}">
+					<option th:each="manufacturer: ${manufacturers}" th:value="${manufacturer.id}"
+						th:text="${manufacturer.name}"></option>
+				</select>
 			</div>
 			<div>
-			<input type="submit" value="Save"></input>
+				<a href="/"><input type="button" name="return-button" value="Back" />
+					<input type="submit" value="Save" />
 		</form>
 	</div>
 </body>
+
 </html>

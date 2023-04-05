@@ -5,6 +5,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import com.fasterxml.jackson.annotation.JsonTypeInfo.Id;
+
 import org.springframework.web.bind.annotation.GetMapping;
 
 import k23op1.op1_backend.domain.Clothing;
@@ -18,21 +21,21 @@ public class ClothingController {
     @Autowired
     private ManufacturerRepository manufacturerRepository;
 
-    //Listaussivu
+    // Listaussivu
     @GetMapping("/")
     public String clothingList(Model model) {
         model.addAttribute("clothes", clothingRepository.findAll());
         return "index";
     }
 
-    //Vaatteen poisto
+    // Vaatteen poisto
     @GetMapping("/delete/{id}")
     public String delete(@PathVariable("id") Long clothingId, Model model) {
         clothingRepository.deleteById(clothingId);
         return "redirect:../";
     }
 
-    //Vaatteen lisäys
+    // Vaatteen lisäys
     @GetMapping("/add")
     public String add(Model model) {
         model.addAttribute("clothes", new Clothing());
@@ -40,10 +43,18 @@ public class ClothingController {
         return "add";
     }
 
-    //Tallennus
-	@PostMapping("/save")
-	public String saveBook(Clothing clothing) {
-		clothingRepository.save(clothing);
-		return "redirect:";
-	}
+    // Vaatteen muokkaus
+    @GetMapping("/edit/{id}")
+    public String edit(@PathVariable("id") Long clothingId, Model model) {
+        model.addAttribute("clothing", clothingRepository.findById(clothingId));
+        model.addAttribute("manufacturers", manufacturerRepository.findAll());
+        return "edit";
+    }
+
+    // Tallennus
+    @PostMapping("/save")
+    public String saveBook(Clothing clothing) {
+        clothingRepository.save(clothing);
+        return "redirect:";
+    }
 }
