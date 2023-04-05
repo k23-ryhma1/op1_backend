@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import k23op1.op1_backend.domain.Clothing;
 import k23op1.op1_backend.domain.ClothingRepository;
 import k23op1.op1_backend.domain.ManufacturerRepository;
 
@@ -27,5 +28,11 @@ public class ClothingController {
     public String delete(@PathVariable("id") Long clothingId, Model model) {
         clothingRepository.deleteById(clothingId);
         return "redirect:../";
+    }
+
+    @RequestMapping("/add")
+    public String add(Model model) {
+        model.addAttribute("clothes", new Clothing());
+        return "add";
     }
 }
