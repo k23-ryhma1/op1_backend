@@ -5,5 +5,29 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
+	<div>
+		<form th:object="${clothes}" th:action="@{save}" action="#" method="post">
+			<div>
+		  	<label for="type">Type</label>
+			<input type="text" th:field="*{type}" />
+			</div>
+			<div>
+		  	<label for="Size">Size</label>
+			<input type="text" th:field="*{size}" />
+			</div>
+			<div>
+			<!--nyt ei hyväksy desimaaleja-->
+		  	<label for="price">Price</label>
+			<input type="number" min="1" th:field="*{price}" />
+			</div>
+			<div>
+			<!--muutetaan valmistajalistaukseksi, josta valitaan -->
+			<label for="manufacturer">Manufacturer</label>
+			<input type="text" th:field="*{manufacturer}" /> 
+			</div>
+			<div>
+			<input type="submit" value="Save"></input>
+		</form>
+	</div>
 </body>
 </html>
