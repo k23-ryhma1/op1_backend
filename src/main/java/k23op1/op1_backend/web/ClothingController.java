@@ -29,30 +29,30 @@ public class ClothingController {
     }
 
     // Vaatteen poisto
-    @GetMapping("/delete/{id}")
-    public String delete(@PathVariable("id") Long clothingId, Model model) {
+    @GetMapping("/deleteclothing/{id}")
+    public String deleteClothing(@PathVariable("id") Long clothingId, Model model) {
         clothingRepository.deleteById(clothingId);
         return "redirect:../";
     }
 
     // Vaatteen lisäys
-    @GetMapping("/add")
-    public String add(Model model) {
+    @GetMapping("/addclothing")
+    public String addClothing(Model model) {
         model.addAttribute("clothes", new Clothing());
         model.addAttribute("manufacturers", manufacturerRepository.findAll());
-        return "add";
+        return "addclothing";
     }
 
     // Vaatteen muokkaus
-    @GetMapping("/edit/{id}")
-    public String edit(@PathVariable("id") Long clothingId, Model model) {
+    @GetMapping("/editclothing/{id}")
+    public String editClothing(@PathVariable("id") Long clothingId, Model model) {
         model.addAttribute("clothing", clothingRepository.findById(clothingId));
         model.addAttribute("manufacturers", manufacturerRepository.findAll());
-        return "edit";
+        return "editclothing";
     }
 
     // Tallennus
-    @PostMapping("/save")
+    @PostMapping("/saveclothing")
     public String saveBook(Clothing clothing) {
         clothingRepository.save(clothing);
         return "redirect:";

@@ -24,12 +24,12 @@
 					<td th:text="${clothing.size}">
 					<td th:text="${clothing.price}">
 					<td th:text="${clothing.manufacturer.name}">
-					<td><a th:href="@{/delete/{id}(id=${clothing.id})}" class="btn btn-danger">Delete</a></td>
-					<td><a th:href="@{/edit/{id}(id=${clothing.id})}" class="btn btn-primary">Edit</a></td>
+					<td><a th:href="@{/deleteclothing/{id}(id=${clothing.id})}" class="btn btn-danger">Delete</a></td>
+					<td><a th:href="@{/editclothing/{id}(id=${clothing.id})}" class="btn btn-primary">Edit</a></td>
 				</tr>
 			</tbody>
 		</table>
-		<a href="/add" class="btn btn-success">Add Clothing</a>
+		<a href="/addclothing" class="btn btn-success">Add Clothing</a>
 	</div>
 </body>
 

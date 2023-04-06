@@ -10,7 +10,7 @@
 <body>
 	<div class="text-center">
 		<h1>Add clothing</h1>
-		<form th:object="${clothes}" th:action="@{save}" action="#" method="post">
+		<form th:object="${clothes}" th:action="@{saveclothing}" action="#" method="post">
 			<div>
 				<label for="type">Type</label>
 				<input type="text" th:field="*{type}" />
