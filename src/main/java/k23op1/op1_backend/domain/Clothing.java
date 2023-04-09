@@ -5,6 +5,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
+import jakarta.validation.constraints.Size;
 
 @Entity
 public class Clothing {
@@ -13,7 +14,9 @@ public class Clothing {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     
+	@Size(min = 1, max = 50)
     private String type;
+	
     private String size;
     private double price;
 
