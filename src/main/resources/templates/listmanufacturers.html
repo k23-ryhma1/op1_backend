@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
+
+<head>
+	<title>Ompun ja Ranen kauppa</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+	<div>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Manufacturer</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="manufacturers:${manufacturer}">
+					<td th:text="${clothing.manufacturer.name}">
+					<td><a th:href="@{/deletemanufacturers/{id}(id=${manufacturer.id})}" class="btn btn-danger">Delete</a></td>
+					<td><a th:href="@{/editmanufacturer/{id}(id=${manufacturer.id})}" class="btn btn-primary">Edit</a></td>
+				</tr>
+			</tbody>
+		</table>
+		<a href="/addmanufacturer" class="btn btn-success">Add Manufacturer</a>
+	</div>
+</body>
+
+</html>
