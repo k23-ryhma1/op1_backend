@@ -6,6 +6,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.Min;
 
 @Entity
 public class Clothing {
@@ -18,6 +19,8 @@ public class Clothing {
     private String type;
 	
     private String size;
+
+	@Min(value=0)
     private double price;
 
     @ManyToOne
