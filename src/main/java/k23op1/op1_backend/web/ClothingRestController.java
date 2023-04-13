@@ -17,13 +17,13 @@ public class ClothingRestController {
     ClothingRepository clothingRepository;
 
     // Palauttaa kaikki vaatteet
-    @GetMapping("/clothings")
+    @GetMapping("/api/clothings")
     public Iterable<Clothing> getClothings() {
         return clothingRepository.findAll();
     }
     
     // Palauttaa yhden vaatteen
-    @GetMapping("/clothings/{id}")
+    @GetMapping("/api/clothings/{id}")
     Optional<Clothing> getClothing(@PathVariable Long id) {
         return clothingRepository.findById(id);
     }

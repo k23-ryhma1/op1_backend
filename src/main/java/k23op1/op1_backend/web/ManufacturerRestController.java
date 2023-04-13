@@ -17,13 +17,13 @@ public class ManufacturerRestController {
     ManufacturerRepository manufacturerRepository;
 
     // Palauttaa kaikki valmistajat
-    @GetMapping("/manufacturers")
+    @GetMapping("/api/manufacturers")
     public Iterable<Manufacturer> getManufacturers() {
         return manufacturerRepository.findAll();
     }
     
     // Palauttaa yhden valmistajan
-    @GetMapping("/manufacturers/{id}")
+    @GetMapping("/api/manufacturers/{id}")
     Optional<Manufacturer> getClothing(@PathVariable Long id) {
         return manufacturerRepository.findById(id);
     }
