@@ -12,8 +12,8 @@
 		<h1>Add manufacturer</h1>
 		<form th:object="${manufacturers}" th:action="@{savemanufacturer}" action="#" method="post">
 			<div>
-				<label for="manufacturer">Manufacturer</label>
-				<input type="text" th:field="*{manufacturer}" />
+				<label for="name">Manufacturer</label>
+				<input type="text" th:field="*{name}" />
 			</div>
 			<div>
 				<a href="/"><input type="button" name="return-button" value="Back" />
