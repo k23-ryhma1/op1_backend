@@ -16,8 +16,8 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr th:each="manufacturers:${manufacturer}">
-					<td th:text="${clothing.manufacturer.name}">
+				<tr th:each="manufacturer:${manufacturers}">
+					<td th:text="${manufacturer.name}">
 					<td><a th:href="@{/deletemanufacturers/{id}(id=${manufacturer.id})}" class="btn btn-danger">Delete</a></td>
 					<td><a th:href="@{/editmanufacturer/{id}(id=${manufacturer.id})}" class="btn btn-primary">Edit</a></td>
 				</tr>

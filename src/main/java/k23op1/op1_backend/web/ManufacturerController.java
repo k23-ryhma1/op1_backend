@@ -27,4 +27,9 @@ public class ManufacturerController {
         return "redirect:";
     }
 
+    @GetMapping("/listmanufacturers")
+    public String listManufacturers(Model model) {
+        model.addAttribute("manufacturers", manufacturerRepository.findAll());
+        return "listmanufacturers";
+    }
 }
