@@ -6,9 +6,7 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface ClothingRepository extends CrudRepository<Clothing, Long> {
     
-    // Find by clothing type.
-    List<Clothing> findByType(String type);
-
-    // Other?
+    // Etsi vaatetyypin perusteella
+    List<Clothing> findByType(String string);
     
 }

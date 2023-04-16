@@ -1,5 +1,6 @@
 package k23op1.op1_backend.web;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,9 +28,15 @@ public class ClothingRestController {
     }
     
     // Palauttaa yhden vaatteen
-    @GetMapping("/api/clothings/{id}")
+    @GetMapping("/api/clothings/id/{id}")
     Optional<Clothing> getClothing(@PathVariable Long id) {
         return clothingRepository.findById(id);
+    }
+
+    // Palauttaa yhden vaatteen tyypin perusteella
+    @GetMapping("/api/clothings/type/{type}")
+    List<Clothing> getClothingByType(@PathVariable String type) {
+        return clothingRepository.findByType(type);
     }
 
     // Lisää yhden vaatteen
