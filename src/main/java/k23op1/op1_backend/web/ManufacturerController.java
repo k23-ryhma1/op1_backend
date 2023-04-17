@@ -39,4 +39,10 @@ public class ManufacturerController {
         manufacturerRepository.deleteById(manufacturerId);
         return "redirect:../listmanufacturers";
     }
+
+    @GetMapping("/editmanufacturer/{id}")
+    public String editManufacturer(@PathVariable("id") Long manufacturerId, Model model) {
+        model.addAttribute("manufacturer", manufacturerRepository.findById(manufacturerId));
+        return "editmanufacturer";
+    }
 }
