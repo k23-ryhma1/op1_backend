@@ -33,7 +33,7 @@ public class ManufacturerRestController {
     }
 
     // Lisää yhden valmistajan
-    @PostMapping("manufacturers")
+    @PostMapping("/api/manufacturers")
     Manufacturer newManufacturer(@RequestBody Manufacturer newManufacturer) {
         return manufacturerRepository.save(newManufacturer);
     }

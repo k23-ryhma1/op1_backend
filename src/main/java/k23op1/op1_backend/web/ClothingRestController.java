@@ -40,7 +40,7 @@ public class ClothingRestController {
     }
 
     // Lisää yhden vaatteen
-    @PostMapping("clothings")
+    @PostMapping("/api/clothings")
     Clothing newClothing(@RequestBody Clothing newClothing) {
         return clothingRepository.save(newClothing);
     }
