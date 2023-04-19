@@ -19,7 +19,7 @@ public class Manufacturer {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     
-	@Size(min = 1, max = 50)
+	@Size(min = 1, max = 50, message = "This field is required and cannot be empty.")
     private String name;
 
 	@JsonIgnore
