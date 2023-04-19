@@ -3,9 +3,14 @@ package k23op1.op1_backend.web;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import jakarta.validation.Valid;
+
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 
 import k23op1.op1_backend.domain.Clothing;
 import k23op1.op1_backend.domain.ClothingRepository;
@@ -35,7 +40,7 @@ public class ClothingController {
     // Vaatteen lisäys
     @GetMapping("/addclothing")
     public String addClothing(Model model) {
-        model.addAttribute("clothes", new Clothing());
+        model.addAttribute("clothing", new Clothing());
         model.addAttribute("manufacturers", manufacturerRepository.findAll());
         return "addclothing";
     }
@@ -50,7 +55,11 @@ public class ClothingController {
 
     // Tallennus
     @PostMapping("/saveclothing")
-    public String saveBook(Clothing clothing) {
+    public String saveClothing(@Valid @ModelAttribute("clothing") Clothing clothing, BindingResult bindingResult, Model model) {
+        if (bindingResult.hasErrors()) {
+            model.addAttribute("manufacturers", manufacturerRepository.findAll());
+            return "editclothing";
+        }
         clothingRepository.save(clothing);
         return "redirect:";
     }
