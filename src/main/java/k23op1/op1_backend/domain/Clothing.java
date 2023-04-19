@@ -5,8 +5,9 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.Size;
 
 @Entity
 public class Clothing {
@@ -20,7 +21,7 @@ public class Clothing {
 	
     private String size;
 
-	@Min(value=0, message = "This field is required and cannot be empty.")
+	@Min(value=0, message = "Incorrect price.")
     private double price;
 
     @ManyToOne
