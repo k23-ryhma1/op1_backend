@@ -19,12 +19,14 @@ public class ManufacturerController {
     @Autowired
     private ManufacturerRepository manufacturerRepository;
 
+    // Valmistajan lisäys
     @GetMapping("/addmanufacturer")
     public String addManufacturers(Model model) {
         model.addAttribute("manufacturer", new Manufacturer());
         return "addmanufacturer";
     }
     
+    // Valmistajan tallennus
     @PostMapping("/savemanufacturer")
     public String saveManufacturer(@Valid @ModelAttribute("manufacturer") Manufacturer manufacturer, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
@@ -34,18 +36,21 @@ public class ManufacturerController {
         return "redirect:";
     }
 
+    // Valmistajien listaus
     @GetMapping("/listmanufacturers")
     public String listManufacturers(Model model) {
         model.addAttribute("manufacturers", manufacturerRepository.findAll());
         return "listmanufacturers";
     }
 
+    // Valmistajan poisto
     @GetMapping("/deletemanufacturers/{id}")
     public String deleteClothing(@PathVariable("id") Long manufacturerId, Model model) {
         manufacturerRepository.deleteById(manufacturerId);
         return "redirect:../listmanufacturers";
     }
 
+    // Valmistajan muokkaus
     @GetMapping("/editmanufacturer/{id}")
     public String editManufacturer(@PathVariable("id") Long manufacturerId, Model model) {
         model.addAttribute("manufacturer", manufacturerRepository.findById(manufacturerId));
