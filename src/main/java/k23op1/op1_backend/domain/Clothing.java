@@ -15,12 +15,12 @@ public class Clothing {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     
-	@Size(min = 1, max = 50)
+	@Size(min = 1, max = 50, message = "This field is required and cannot be empty.")
     private String type;
 	
     private String size;
 
-	@Min(value=0)
+	@Min(value=0, message = "This field is required and cannot be empty.")
     private double price;
 
     @ManyToOne
