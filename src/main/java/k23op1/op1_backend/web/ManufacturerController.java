@@ -3,10 +3,13 @@ package k23op1.op1_backend.web;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import jakarta.validation.Valid;
 import k23op1.op1_backend.domain.Manufacturer;
 import k23op1.op1_backend.domain.ManufacturerRepository;
 
@@ -18,12 +21,15 @@ public class ManufacturerController {
 
     @GetMapping("/addmanufacturer")
     public String addManufacturers(Model model) {
-        model.addAttribute("manufacturers", new Manufacturer());
+        model.addAttribute("manufacturer", new Manufacturer());
         return "addmanufacturer";
     }
     
     @PostMapping("/savemanufacturer")
-    public String saveManufacturer(Manufacturer manufacturer) {
+    public String saveManufacturer(@Valid @ModelAttribute("manufacturer") Manufacturer manufacturer, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return "editmanufacturer";
+        }
         manufacturerRepository.save(manufacturer);
         return "redirect:";
     }

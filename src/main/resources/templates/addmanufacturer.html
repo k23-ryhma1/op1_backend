@@ -10,7 +10,7 @@
 <body>
 	<div class="text-center">
 		<h1>Add manufacturer</h1>
-		<form th:object="${manufacturers}" th:action="@{savemanufacturer}" action="#" method="post">
+		<form th:object="${manufacturer}" th:action="@{savemanufacturer}" action="#" method="post">
 			<div>
 				<label for="name">Manufacturer</label>
 				<input type="text" th:field="*{name}" />
