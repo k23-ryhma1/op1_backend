@@ -18,7 +18,8 @@ public class Product {
 	@Size(min = 1, max = 50, message = "This field is required and cannot be empty.")
     private String type;
 	
-    private String size;
+    @ManyToOne
+    private ClothingSize size;
 
 	@Min(value=0, message = "Incorrect price.")
     private double price;
@@ -30,7 +31,7 @@ public class Product {
         super();
     }
 
-    public Product(String type, String size, double price, Manufacturer manufacturer) {
+    public Product(String type, ClothingSize size, double price, Manufacturer manufacturer) {
         super();
         this.type = type;
         this.size = size;
@@ -54,11 +55,11 @@ public class Product {
 		this.type = type;
 	}
 
-    public String getSize() {
+    public ClothingSize getSize() {
 		return size;
 	}
 
-	public void setSize(String size) {
+	public void setSize(ClothingSize size) {
 		this.size = size;
 	}
 

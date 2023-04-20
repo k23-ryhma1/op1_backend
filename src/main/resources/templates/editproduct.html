@@ -19,7 +19,10 @@
 			</div>
 			<div>
 				<label for="size">Size</label>
-				<input type="text" id="size" th:field="*{size}">
+				<select th:field="*{size}">
+					<option th:each="size: ${sizes}" th:value="${size.id}"
+						th:text="${size.clothingSize}"></option>
+				</select>
 			</div>
 			<div>
 				<label for="price">Price</label>

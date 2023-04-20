@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 
 import k23op1.op1_backend.domain.Product;
 import k23op1.op1_backend.domain.ProductRepository;
+import k23op1.op1_backend.domain.ClothingSizeRepository;
 import k23op1.op1_backend.domain.ManufacturerRepository;
 
 @Controller
@@ -22,6 +23,8 @@ public class ProductController {
     private ProductRepository productRepository;
     @Autowired
     private ManufacturerRepository manufacturerRepository;
+    @Autowired
+    private ClothingSizeRepository clothingSizeRepository;
 
     // Listaussivu
     @GetMapping("/")
@@ -42,6 +45,7 @@ public class ProductController {
     public String addProduct(Model model) {
         model.addAttribute("product", new Product());
         model.addAttribute("manufacturers", manufacturerRepository.findAll());
+        model.addAttribute("sizes", clothingSizeRepository.findAll());
         return "addproduct";
     }
 
@@ -50,6 +54,7 @@ public class ProductController {
     public String editProduct(@PathVariable("id") Long productId, Model model) {
         model.addAttribute("product", productRepository.findById(productId));
         model.addAttribute("manufacturers", manufacturerRepository.findAll());
+        model.addAttribute("sizes", clothingSizeRepository.findAll());
         return "editproduct";
     }
 
@@ -58,6 +63,7 @@ public class ProductController {
     public String saveProduct(@Valid @ModelAttribute("product") Product product, BindingResult bindingResult, Model model) {
         if (bindingResult.hasErrors()) {
             model.addAttribute("manufacturers", manufacturerRepository.findAll());
+            model.addAttribute("sizes", clothingSizeRepository.findAll());
             return "editproduct";
         }
         productRepository.save(product);
