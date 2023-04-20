@@ -4,9 +4,9 @@ import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;
 
-public interface ClothingRepository extends CrudRepository<Clothing, Long> {
+public interface ProductRepository extends CrudRepository<Product, Long> {
     
     // Etsi vaatetyypin perusteella
-    List<Clothing> findByType(String string);
+    List<Product> findByType(String string);
     
 }

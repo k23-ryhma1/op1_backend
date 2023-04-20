@@ -19,17 +19,17 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr th:each="clothing:${clothes}">
-					<td th:text="${clothing.type}">
-					<td th:text="${clothing.size}">
-					<td th:text="${clothing.price}">
-					<td th:text="${clothing.manufacturer.name}">
-					<td><a th:href="@{/deleteclothing/{id}(id=${clothing.id})}" class="btn btn-danger">Delete</a></td>
-					<td><a th:href="@{/editclothing/{id}(id=${clothing.id})}" class="btn btn-primary">Edit</a></td>
+				<tr th:each="product:${products}">
+					<td th:text="${product.type}">
+					<td th:text="${product.size}">
+					<td th:text="${product.price}">
+					<td th:text="${product.manufacturer.name}">
+					<td><a th:href="@{/deleteproduct/{id}(id=${product.id})}" class="btn btn-danger">Delete</a></td>
+					<td><a th:href="@{/editproduct/{id}(id=${product.id})}" class="btn btn-primary">Edit</a></td>
 				</tr>
 			</tbody>
 		</table>
-		<a href="/addclothing" class="btn btn-success">Add Clothing</a>
+		<a href="/addproduct" class="btn btn-success">Add Product</a>
 				<a href="/addmanufacturer" class="btn btn-success">Add Manufacturer</a>
 						<a href="/listmanufacturers" class="btn btn-success">List Manufacturers</a>
 	</div>

@@ -28,8 +28,8 @@ public class RestControllerTests {
     }
 
     @Test
-    public void clothingApiStatusOk() throws Exception{
-        mockMvc.perform(get("/api/clothings")).andExpect(status().isOk());
+    public void productApiStatusOk() throws Exception{
+        mockMvc.perform(get("/api/products")).andExpect(status().isOk());
     }
 
     @Test

@@ -9,20 +9,21 @@
 
 <body>
 	<div class="text-center">
-		<h1>Add clothing</h1>
-		<form th:object="${clothing}" th:action="@{saveclothing}" action="#" method="post">
+		<h1>Edit product</h1>
+		<form th:object="${product}" th:action="@{/saveproduct}" action="#" method="post">
+			<input type="hidden" th:field="*{id}" class="form-control" />
 			<div>
 				<label for="type">Type</label>
-				<input type="text" th:field="*{type}" />
+				<input type="text" id="type" th:field="*{type}">
 				<div th:if="${#fields.hasErrors('type')}" th:errors="*{type}">Error</div>
 			</div>
 			<div>
-				<label for="Size">Size</label>
-				<input type="text" th:field="*{size}" />
+				<label for="size">Size</label>
+				<input type="text" id="size" th:field="*{size}">
 			</div>
 			<div>
 				<label for="price">Price</label>
-				<input type="text" th:field="*{price}" />
+				<input type="text" id="price" th:field="*{price}">
 				<div th:if="${#fields.hasErrors('price')}" th:errors="*{price}">Error</div>
 			</div>
 			<div>
@@ -32,9 +33,8 @@
 						th:text="${manufacturer.name}"></option>
 				</select>
 			</div>
-			<div>
-				<a href="/"><input type="button" name="return-button" value="Back" />
-					<input type="submit" value="Save" />
+			<a href="/"><input type="button" name="return-button" value="Back" />
+				<input type="submit" value="Save" />
 		</form>
 	</div>
 </body>

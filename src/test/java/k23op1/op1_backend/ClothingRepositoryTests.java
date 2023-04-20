@@ -7,8 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-import k23op1.op1_backend.domain.Clothing;
-import k23op1.op1_backend.domain.ClothingRepository;
+import k23op1.op1_backend.domain.Product;
+import k23op1.op1_backend.domain.ProductRepository;
 import k23op1.op1_backend.domain.Manufacturer;
 import k23op1.op1_backend.domain.ManufacturerRepository;
 
@@ -17,28 +17,28 @@ import k23op1.op1_backend.domain.ManufacturerRepository;
 class ClothingRepositoryTests {
     
     @Autowired
-    ClothingRepository clothingRepository;
+    ProductRepository productRepository;
     @Autowired 
     ManufacturerRepository manufacturerRepository;
 
     @Test
-    void createNewClothing () {
+    void createNewProduct () {
         Manufacturer m1 = new Manufacturer("Purina");
         manufacturerRepository.save(m1);
-        Clothing c1 = new Clothing("Sadetakki", "M", 39.90, m1);
-        clothingRepository.save(c1);
-        assertThat(c1.getId()).isNotNull();
+        Product p1 = new Product("Sadetakki", "M", 39.90, m1);
+        productRepository.save(p1);
+        assertThat(p1.getId()).isNotNull();
     }
     
     @Test
-    void deleteClothing () {
-        int repositoryLength = (int) clothingRepository.count();
+    void deleteProduct () {
+        int repositoryLength = (int) productRepository.count();
         Manufacturer m1 = new Manufacturer("Purina");
         manufacturerRepository.save(m1);
-        Clothing c1 = new Clothing("Sadetakki", "M", 39.90, m1);
-        clothingRepository.save(c1);
-        assertThat(c1.getId()).isNotNull();
-        clothingRepository.delete(c1);
-		assertThat((int) clothingRepository.count()).isEqualTo(repositoryLength);
+        Product p1 = new Product("Sadetakki", "M", 39.90, m1);
+        productRepository.save(p1);
+        assertThat(p1.getId()).isNotNull();
+        productRepository.delete(p1);
+		assertThat((int) productRepository.count()).isEqualTo(repositoryLength);
     }
 }

@@ -9,7 +9,7 @@ import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.Size;
 
 @Entity
-public class Clothing {
+public class Product {
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -26,11 +26,11 @@ public class Clothing {
     @ManyToOne
     private Manufacturer manufacturer;
 
-    public Clothing() {
+    public Product() {
         super();
     }
 
-    public Clothing(String type, String size, double price, Manufacturer manufacturer) {
+    public Product(String type, String size, double price, Manufacturer manufacturer) {
         super();
         this.type = type;
         this.size = size;
