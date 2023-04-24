@@ -27,17 +27,17 @@ public class ProductController {
     private ClothingSizeRepository clothingSizeRepository;
 
     // Listaussivu
-    @GetMapping("/")
+    @GetMapping("/listproducts")
     public String productList(Model model) {
         model.addAttribute("products", productRepository.findAll());
-        return "index";
+        return "listproducts";
     }
 
     // Tuotteen poisto
     @GetMapping("/deleteproduct/{id}")
     public String deleteProduct(@PathVariable("id") Long productId, Model model) {
         productRepository.deleteById(productId);
-        return "redirect:../";
+        return "redirect:../listproducts";
     }
 
     // Tuotteen lisäys
@@ -67,6 +67,6 @@ public class ProductController {
             return "editproduct";
         }
         productRepository.save(product);
-        return "redirect:";
+        return "redirect:listproducts";
     }
 }

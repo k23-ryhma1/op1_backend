@@ -18,7 +18,7 @@
                 <input type="text" id="name" th:field="*{name}">
                 <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Error</div>
             </div>
-            <a href="/"><input type="button" name="return-button" value="Back" />
+            <a href="/listmanufacturers"><input type="button" name="return-button" value="Back" />
                 <input type="submit" value="Save" />
         </form>
     </div>

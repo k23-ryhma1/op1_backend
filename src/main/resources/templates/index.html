@@ -9,29 +9,17 @@
 
 <body>
 	<div>
-		<table class="table table-striped">
-			<thead>
-				<tr>
-					<th>Type</th>
-					<th>Size</th>
-					<th>Price</th>
-					<th>Manufacturer</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr th:each="product:${products}">
-					<td th:text="${product.type}">
-					<td th:text="${product.size.clothingSize}">
-					<td th:text="${product.price}">
-					<td th:text="${product.manufacturer.name}">
-					<td><a th:href="@{/deleteproduct/{id}(id=${product.id})}" class="btn btn-danger">Delete</a></td>
-					<td><a th:href="@{/editproduct/{id}(id=${product.id})}" class="btn btn-primary">Edit</a></td>
-				</tr>
-			</tbody>
-		</table>
-		<a href="/addproduct" class="btn btn-success">Add Product</a>
-				<a href="/addmanufacturer" class="btn btn-success">Add Manufacturer</a>
-						<a href="/listmanufacturers" class="btn btn-success">List Manufacturers</a>
+        <!-- Navbar 
+        <nav class="navbar navbar-light bg-light">
+            <a class="navbar-brand" href="/">Ompun ja Ranen kauppa</a>
+        </nav>
+        -->
+        <div class="text-center">
+            <h1>Ompun ja Ranen kauppa</h1>
+            <br/>
+            <a href="/listproducts" class="btn btn-success">Products</a>
+            <a href="/listmanufacturers" class="btn btn-success">Manufacturers</a>
+        </div>
 	</div>
 </body>
 

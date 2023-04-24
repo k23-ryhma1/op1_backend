@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
+
+<head>
+	<title>Ompun ja Ranen kauppa</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+	<div>
+		<a href="/" class="btn btn-success">Etusivu</a>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Type</th>
+					<th>Size</th>
+					<th>Price</th>
+					<th>Manufacturer</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="product:${products}">
+					<td th:text="${product.type}">
+					<td th:text="${product.size.clothingSize}">
+					<td th:text="${product.price}">
+					<td th:text="${product.manufacturer.name}">
+					<td><a th:href="@{/deleteproduct/{id}(id=${product.id})}" class="btn btn-danger">Delete</a></td>
+					<td><a th:href="@{/editproduct/{id}(id=${product.id})}" class="btn btn-primary">Edit</a></td>
+				</tr>
+			</tbody>
+		</table>
+		<a href="/addproduct" class="btn btn-success">Add Product</a>
+		<a href="/addmanufacturer" class="btn btn-success">Add Manufacturer</a>
+		<a href="/listmanufacturers" class="btn btn-success">List Manufacturers</a>
+	</div>
+</body>
+
+</html>

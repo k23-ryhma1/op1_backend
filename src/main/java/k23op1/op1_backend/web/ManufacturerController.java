@@ -37,7 +37,7 @@ public class ManufacturerController {
             return "editmanufacturer";
         }
         manufacturerRepository.save(manufacturer);
-        return "redirect:";
+        return "redirect:listmanufacturers";
     }
 
     // Valmistajien listaus
