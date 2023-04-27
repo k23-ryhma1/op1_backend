@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 
 import k23op1.op1_backend.domain.Product;
 import k23op1.op1_backend.domain.ProductRepository;
+import k23op1.op1_backend.domain.TypeRepository;
 import k23op1.op1_backend.domain.ClothingSizeRepository;
 import k23op1.op1_backend.domain.ManufacturerRepository;
 
@@ -25,6 +26,8 @@ public class ProductController {
     private ManufacturerRepository manufacturerRepository;
     @Autowired
     private ClothingSizeRepository clothingSizeRepository;
+    @Autowired
+    private TypeRepository typeRepository;
 
     // Listaussivu
     @GetMapping("/listproducts")
@@ -46,6 +49,7 @@ public class ProductController {
         model.addAttribute("product", new Product());
         model.addAttribute("manufacturers", manufacturerRepository.findAll());
         model.addAttribute("sizes", clothingSizeRepository.findAll());
+        model.addAttribute("types", typeRepository.findAll());
         return "addproduct";
     }
 
@@ -55,6 +59,7 @@ public class ProductController {
         model.addAttribute("product", productRepository.findById(productId));
         model.addAttribute("manufacturers", manufacturerRepository.findAll());
         model.addAttribute("sizes", clothingSizeRepository.findAll());
+        model.addAttribute("types", typeRepository.findAll());
         return "editproduct";
     }
 
@@ -64,6 +69,7 @@ public class ProductController {
         if (bindingResult.hasErrors()) {
             model.addAttribute("manufacturers", manufacturerRepository.findAll());
             model.addAttribute("sizes", clothingSizeRepository.findAll());
+            model.addAttribute("types", typeRepository.findAll());
             return "editproduct";
         }
         productRepository.save(product);

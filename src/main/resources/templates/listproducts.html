@@ -22,6 +22,7 @@
 			<tbody>
 				<tr th:each="product:${products}">
 					<td th:text="${product.name}">
+					<td th:text="${product.type.type}">
 					<td th:text="${product.size.clothingSize}">
 					<td th:text="${product.price}">
 					<td th:text="${product.manufacturer.name}">

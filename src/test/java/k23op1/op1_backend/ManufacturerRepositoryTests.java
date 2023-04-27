@@ -25,7 +25,7 @@ public class ManufacturerRepositoryTests {
     }
     
     @Test
-    void deleteClothing () {
+    void deleteManufacturer () {
         int repositoryLength = (int) manufacturerRepository.count();
         Manufacturer m1 = new Manufacturer("Purina");
         manufacturerRepository.save(m1);

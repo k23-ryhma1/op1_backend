@@ -18,6 +18,13 @@
 				<div th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Error</div>
 			</div>
 			<div>
+				<label for="type">Type</label>
+				<select th:field="*{type}">
+					<option th:each="type: ${types}" th:value="${type.id}"
+						th:text="${type.type}"></option>
+				</select>
+			</div>
+			<div>
 				<label for="size">Size</label>
 				<select th:field="*{size}">
 					<option th:each="size: ${sizes}" th:value="${size.id}"
