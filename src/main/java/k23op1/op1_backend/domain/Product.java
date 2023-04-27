@@ -1,7 +1,5 @@
 package k23op1.op1_backend.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -27,7 +25,6 @@ public class Product {
     private double price;
 
     @ManyToOne
-	@JsonIgnore
     private Manufacturer manufacturer;
 
     public Product() {
@@ -84,7 +81,7 @@ public class Product {
 
     @Override
 	public String toString() {
-		return "Clothing [id=" + id + ", type=" + type + ", size=" + size + ", price=" + price + "]";
+		return "Product [id=" + id + ", type=" + type + ", size=" + size + ", price=" + price + "]";
 	}
 
 }

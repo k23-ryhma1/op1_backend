@@ -51,11 +51,11 @@ public class Manufacturer {
 		this.name = name;
 	}
 
-    public List<Product> getClothings() {
+    public List<Product> getProducts() {
 		return products;
 	}
 
-	public void setClothings(List<Product> products) {
+	public void getProducts(List<Product> products) {
 		this.products = products;
 	}
 

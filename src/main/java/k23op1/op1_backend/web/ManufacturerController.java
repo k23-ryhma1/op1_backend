@@ -49,11 +49,11 @@ public class ManufacturerController {
 
     // Valmistajan poisto jos valmistajalla ei ole tuotteita, muuten virheilmoitus!
     @GetMapping("/deletemanufacturers/{id}")
-    public RedirectView deleteClothing(@PathVariable("id") Long manufacturerId, RedirectAttributes attributes) {
+    public RedirectView deleteProduct(@PathVariable("id") Long manufacturerId, RedirectAttributes attributes) {
         Optional<Manufacturer> manufacturer = manufacturerRepository.findById(manufacturerId);
         //muutetaan Optional normaaliksi
         Manufacturer normalManufacturer = manufacturer.get();
-        if (normalManufacturer.getClothings().isEmpty()) {
+        if (normalManufacturer.getProducts().isEmpty()) {
             manufacturerRepository.deleteById(manufacturerId);
         }else {
             attributes.addFlashAttribute("error", "Poistaminen epäonnistui, valmistajalla on tuotteita!");
