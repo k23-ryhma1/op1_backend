@@ -55,7 +55,7 @@ public class Manufacturer {
 		return products;
 	}
 
-	public void getProducts(List<Product> products) {
+	public void setProducts(List<Product> products) {
 		this.products = products;
 	}
 
