@@ -33,10 +33,10 @@ public class ProductRestController {
         return productRepository.findById(id);
     }
 
-    // Palauttaa yhden vaatteen tyypin perusteella
+    // Palauttaa yhden vaatteen nimen perusteella
     @GetMapping("/api/products/type/{type}")
-    List<Product> getProductByType(@PathVariable String type) {
-        return productRepository.findByType(type);
+    List<Product> getProductByType(@PathVariable String name) {
+        return productRepository.findByName(name);
     }
 
     // Lisää yhden vaatteen

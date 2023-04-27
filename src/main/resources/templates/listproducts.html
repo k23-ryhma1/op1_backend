@@ -13,7 +13,7 @@
 		<table class="table table-striped">
 			<thead>
 				<tr>
-					<th>Type</th>
+					<th>Name</th>
 					<th>Size</th>
 					<th>Price</th>
 					<th>Manufacturer</th>
@@ -21,7 +21,7 @@
 			</thead>
 			<tbody>
 				<tr th:each="product:${products}">
-					<td th:text="${product.type}">
+					<td th:text="${product.name}">
 					<td th:text="${product.size.clothingSize}">
 					<td th:text="${product.price}">
 					<td th:text="${product.manufacturer.name}">

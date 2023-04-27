@@ -16,7 +16,7 @@ public class Product {
     private long id;
     
 	@Size(min = 1, max = 50, message = "This field is required and cannot be empty.")
-    private String type;
+    private String name;
 	
     @ManyToOne
     private ClothingSize size;
@@ -31,9 +31,9 @@ public class Product {
         super();
     }
 
-    public Product(String type, ClothingSize size, double price, Manufacturer manufacturer) {
+    public Product(String name, ClothingSize size, double price, Manufacturer manufacturer) {
         super();
-        this.type = type;
+        this.name = name;
         this.size = size;
         this.price = price;
         this.manufacturer = manufacturer;
@@ -47,12 +47,12 @@ public class Product {
 		this.id = id;
 	}
 
-	public String getType() {
-		return type;
+	public String getName() {
+		return name;
 	}
 
-	public void setType(String type) {
-		this.type = type;
+	public void setName(String name) {
+		this.name = name;
 	}
 
     public ClothingSize getSize() {
@@ -81,7 +81,7 @@ public class Product {
 
     @Override
 	public String toString() {
-		return "Product [id=" + id + ", type=" + type + ", size=" + size + ", price=" + price + "]";
+		return "Product [id=" + id + ", name=" + name + ", size=" + size + ", price=" + price + "]";
 	}
 
 }

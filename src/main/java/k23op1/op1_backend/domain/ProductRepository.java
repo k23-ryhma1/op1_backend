@@ -7,6 +7,6 @@ import org.springframework.data.repository.CrudRepository;
 public interface ProductRepository extends CrudRepository<Product, Long> {
     
     // Etsi vaatetyypin perusteella
-    List<Product> findByType(String string);
+    List<Product> findByName(String string);
     
 }

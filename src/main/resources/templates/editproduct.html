@@ -13,9 +13,9 @@
 		<form th:object="${product}" th:action="@{/saveproduct}" action="#" method="post">
 			<input type="hidden" th:field="*{id}" class="form-control" />
 			<div>
-				<label for="type">Type</label>
-				<input type="text" id="type" th:field="*{type}">
-				<div th:if="${#fields.hasErrors('type')}" th:errors="*{type}">Error</div>
+				<label for="name">Name</label>
+				<input type="text" id="name" th:field="*{name}">
+				<div th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Error</div>
 			</div>
 			<div>
 				<label for="size">Size</label>
