@@ -25,7 +25,7 @@ public class ManufacturerRestController {
     public Iterable<Manufacturer> getManufacturers() {
         return manufacturerRepository.findAll();
     }
-    
+
     // Palauttaa yhden valmistajan
     @GetMapping("/api/manufacturers/{id}")
     Optional<Manufacturer> getManufacturer(@PathVariable Long id) {
@@ -51,5 +51,4 @@ public class ManufacturerRestController {
         manufacturerRepository.deleteById(id);
         return manufacturerRepository.findAll();
     }
-    
 }

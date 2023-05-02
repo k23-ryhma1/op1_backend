@@ -29,10 +29,11 @@ public class ManufacturerController {
         model.addAttribute("manufacturer", new Manufacturer());
         return "addmanufacturer";
     }
-    
+
     // Valmistajan tallennus
     @PostMapping("/savemanufacturer")
-    public String saveManufacturer(@Valid @ModelAttribute("manufacturer") Manufacturer manufacturer, BindingResult bindingResult) {
+    public String saveManufacturer(@Valid @ModelAttribute("manufacturer") Manufacturer manufacturer,
+            BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "editmanufacturer";
         }
@@ -51,11 +52,11 @@ public class ManufacturerController {
     @GetMapping("/deletemanufacturers/{id}")
     public RedirectView deleteProduct(@PathVariable("id") Long manufacturerId, RedirectAttributes attributes) {
         Optional<Manufacturer> manufacturer = manufacturerRepository.findById(manufacturerId);
-        //muutetaan Optional normaaliksi
+        // muutetaan Optional normaaliksi
         Manufacturer normalManufacturer = manufacturer.get();
         if (normalManufacturer.getProducts().isEmpty()) {
             manufacturerRepository.deleteById(manufacturerId);
-        }else {
+        } else {
             attributes.addFlashAttribute("error", "Poistaminen epäonnistui, valmistajalla on tuotteita!");
         }
         return new RedirectView("/listmanufacturers");
@@ -66,5 +67,12 @@ public class ManufacturerController {
     public String editManufacturer(@PathVariable("id") Long manufacturerId, Model model) {
         model.addAttribute("manufacturer", manufacturerRepository.findById(manufacturerId));
         return "editmanufacturer";
+    }
+
+    // Valmistajan tuotteiden listaus
+    @GetMapping("/manufacturerproducts/{id}")
+    public String productsManufacturer(@PathVariable("id") Long manufacturerId, Model model) {
+        model.addAttribute("product", manufacturerRepository.findById(manufacturerId));
+        return "manufacturerproducts";
     }
 }
