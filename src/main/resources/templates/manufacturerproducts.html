@@ -21,7 +21,7 @@
 			</thead>
 			<tbody>
 				<tr th:each="product:${products}">
-					<td th:text="${product.type}">
+					<td th:text="${product.type.type}">
 					<td th:text="${product.size.clothingSize}">
 					<td th:text="${product.price}">
 					<td><a th:href="@{/deleteproduct/{id}(id=${product.id})}" class="btn btn-danger"

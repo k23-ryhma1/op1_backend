@@ -10,6 +10,7 @@
 </head>
 <body>
     <div class="text-center">
+        <a href="/" class="btn btn-success">Etusivu</a>
         <h1>Edit manufacturer</h1>
         <form th:object="${manufacturer}" th:action="@{/savemanufacturer}" action="#" method="post">
             <input type="hidden" th:field="*{id}" class="form-control" />
