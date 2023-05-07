@@ -16,12 +16,16 @@ import org.springframework.web.servlet.view.RedirectView;
 import jakarta.validation.Valid;
 import k23op1.op1_backend.domain.Manufacturer;
 import k23op1.op1_backend.domain.ManufacturerRepository;
+import k23op1.op1_backend.domain.ProductRepository;
 
 @Controller
 public class ManufacturerController {
 
     @Autowired
     private ManufacturerRepository manufacturerRepository;
+
+    @Autowired
+    private ProductRepository productRepository;
 
     // Valmistajan lisäys
     @GetMapping("/addmanufacturer")
@@ -72,7 +76,7 @@ public class ManufacturerController {
     // Valmistajan tuotteiden listaus
     @GetMapping("/manufacturerproducts/{id}")
     public String productsManufacturer(@PathVariable("id") Long manufacturerId, Model model) {
-        model.addAttribute("product", manufacturerRepository.findById(manufacturerId));
+        model.addAttribute("products", productRepository.findByManufacturerId(manufacturerId));
         return "manufacturerproducts";
     }
 }
