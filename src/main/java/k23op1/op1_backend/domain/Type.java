@@ -49,8 +49,16 @@ public class Type {
         this.type = type;
     }
 
+    public List<Product> getProducts() {
+		return products;
+	}
+
+	public void setProducts(List<Product> products) {
+		this.products = products;
+	}
+
     @Override
-    public String toString(){
-        return type;
-    }
+	public String toString() {
+		return "Manufacturer [id=" + id + ", type=" + type + "]";
+	}
 }
