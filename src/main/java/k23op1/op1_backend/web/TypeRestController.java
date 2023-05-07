@@ -44,7 +44,7 @@ public class TypeRestController {
         return typeRepository.findByType(type);
     }
 
-    // Palauttaa tuotelistan tyypin nimen perusteella KESKEN
+    // Palauttaa tuotelistan tyypin nimen perusteella
     @GetMapping("/api/types/type/type/{type}/products")
     List<Product> getProduct(@PathVariable String type) {
         return productRepository.findByTypeType(type);
