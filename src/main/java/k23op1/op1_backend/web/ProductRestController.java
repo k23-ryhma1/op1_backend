@@ -33,26 +33,20 @@ public class ProductRestController {
         return productRepository.findById(id);
     }
 
-    // Palauttaa yhden vaatteen nimen perusteella
-    @GetMapping("/api/products/type/{type}")
-    List<Product> getProductByType(@PathVariable String name) {
-        return productRepository.findByName(name);
-    }
-
-    // Lisää yhden vaatteen
+    // Lisää yhden tuotteen
     @PostMapping("/api/products")
     Product newProduct(@RequestBody Product newProduct) {
         return productRepository.save(newProduct);
     }
 
-    // Muokkaa vaatetta
+    // Muokkaa tuotetta
     @PutMapping("/api/products/{id}")
     Product editProduct(@RequestBody Product editedProduct, @PathVariable Long id) {
         editedProduct.setId(id);
         return productRepository.save(editedProduct);
     }
 
-    // Poistaa vaatteen
+    // Poistaa tuotteen
     @DeleteMapping("/api/products/{id}")
     public Iterable<Product> deleteProduct(@PathVariable Long id) {
         productRepository.deleteById(id);
