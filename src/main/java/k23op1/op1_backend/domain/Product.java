@@ -2,6 +2,8 @@ package k23op1.op1_backend.domain;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -33,6 +35,7 @@ public class Product {
     @ManyToOne
     private Manufacturer manufacturer;
 
+	@JsonIgnore
 	@OneToMany
 	private List<ProductOrders> productorders;
 

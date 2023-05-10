@@ -3,6 +3,8 @@ package k23op1.op1_backend.domain;
 import java.time.LocalDate;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -25,6 +27,7 @@ public class Orderinfo {
     @ManyToOne
     private Customer customer;
 
+    @JsonIgnore
     @OneToMany
     private List<ProductOrders> productorders;
 
