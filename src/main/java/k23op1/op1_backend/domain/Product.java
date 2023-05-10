@@ -1,10 +1,13 @@
 package k23op1.op1_backend.domain;
 
+import java.util.List;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.Size;
 
@@ -29,6 +32,9 @@ public class Product {
 
     @ManyToOne
     private Manufacturer manufacturer;
+
+	@OneToMany
+	private List<ProductOrders> productorders;
 
     public Product() {
         super();
