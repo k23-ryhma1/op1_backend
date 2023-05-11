@@ -47,9 +47,9 @@ public class Op1BackendApplication {
 			clothingSizeRepository.save(large);
 			clothingSizeRepository.save(noSize);
 
-			Product p1 = new Product("Sadetakki", t2, medium, 39.90, m1);
-			Product p2 = new Product("Ulkotossut", t2, small, 19.90, m2);
-			Product p3 = new Product("Hassuhattu", t2, large, 12.90, m1);
+			Product p1 = new Product("Sadetakki", t2, medium, 39.90, m1, 3);
+			Product p2 = new Product("Ulkotossut", t2, small, 19.90, m2, 6);
+			Product p3 = new Product("Hassuhattu", t2, large, 12.90, m1, 5);
 			productRepository.save(p1);
 			productRepository.save(p2);
 			productRepository.save(p3);

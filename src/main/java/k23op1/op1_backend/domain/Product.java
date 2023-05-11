@@ -32,6 +32,9 @@ public class Product {
 	@Min(value=0, message = "Incorrect price.")
     private double price;
 
+	@Min(value=0, message = "Quantity cannot be lower than zero")
+	private int quantity;
+
     @ManyToOne
     private Manufacturer manufacturer;
 
@@ -43,13 +46,14 @@ public class Product {
         super();
     }
 
-    public Product(String name, Type type, ClothingSize size, double price, Manufacturer manufacturer) {
+    public Product(String name, Type type, ClothingSize size, double price, Manufacturer manufacturer, int quantity) {
         super();
         this.name = name;
 		this.type = type;
         this.size = size;
         this.price = price;
         this.manufacturer = manufacturer;
+		this.quantity = quantity;
     }
 
     public long getId() {
@@ -100,9 +104,17 @@ public class Product {
 		this.manufacturer = manufacturer;
 	}
 
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+
+	public int getQuantity() {
+		return quantity;
+	}
+
     @Override
 	public String toString() {
-		return "Product [id=" + id + ", name=" + name + ", type=" + type + ", size=" + size + ", price=" + price + "]";
+		return "Product [id=" + id + ", name=" + name + ", type=" + type + ", size=" + size + ", price=" + price + "quantity" + quantity + "]";
 	}
 
 }

@@ -38,7 +38,7 @@ class ClothingRepositoryTests {
         clothingSizeRepository.save(small);
         Type t1 = new Type("Vaate");
         typeRepository.save(t1);
-        Product p1 = new Product("Sadetakki", t1, small, 39.90, m1);
+        Product p1 = new Product("Sadetakki", t1, small, 39.90, m1, 8);
         productRepository.save(p1);
         assertThat(p1.getId()).isNotNull();
     }
@@ -52,7 +52,7 @@ class ClothingRepositoryTests {
         clothingSizeRepository.save(small);
         Type t1 = new Type("Vaate");
         typeRepository.save(t1);
-        Product p1 = new Product("Sadetakki", t1, small, 39.90, m1);
+        Product p1 = new Product("Sadetakki", t1, small, 39.90, m1, 8);
         productRepository.save(p1);
         assertThat(p1.getId()).isNotNull();
         productRepository.delete(p1);
