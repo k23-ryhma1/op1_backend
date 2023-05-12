@@ -1,5 +1,7 @@
 package k23op1.op1_backend;
 
+import java.time.LocalDate;
+
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -11,7 +13,13 @@ import k23op1.op1_backend.domain.Customer;
 import k23op1.op1_backend.domain.CustomerRepository;
 import k23op1.op1_backend.domain.Manufacturer;
 import k23op1.op1_backend.domain.ManufacturerRepository;
+import k23op1.op1_backend.domain.Orderinfo;
+import k23op1.op1_backend.domain.OrderinfoRepository;
+import k23op1.op1_backend.domain.Orderstatus;
+import k23op1.op1_backend.domain.OrderstatusRepository;
 import k23op1.op1_backend.domain.Product;
+import k23op1.op1_backend.domain.ProductOrders;
+import k23op1.op1_backend.domain.ProductOrdersRepository;
 import k23op1.op1_backend.domain.ProductRepository;
 import k23op1.op1_backend.domain.Type;
 import k23op1.op1_backend.domain.TypeRepository;
@@ -24,9 +32,16 @@ public class Op1BackendApplication {
 	}
 
 	@Bean
-	public CommandLineRunner demo(ProductRepository productRepository, ManufacturerRepository manufacturerRepository,
-			ClothingSizeRepository clothingSizeRepository, TypeRepository typeRepository,
-			CustomerRepository customerRepository) {
+	public CommandLineRunner demo(
+			ProductRepository productRepository, 
+			ManufacturerRepository manufacturerRepository,
+			ClothingSizeRepository clothingSizeRepository, 
+			TypeRepository typeRepository,
+			CustomerRepository customerRepository, 
+			OrderstatusRepository orderstatusRepository,
+			OrderinfoRepository orderinfoRepository,
+			ProductOrdersRepository productOrdersRepository
+			) {
 		return (arg) -> {
 			Manufacturer m1 = new Manufacturer("Purina");
 			Manufacturer m2 = new Manufacturer("Pedigree");
@@ -60,6 +75,21 @@ public class Op1BackendApplication {
 			customerRepository.save(c1);
 			customerRepository.save(c2);
 			customerRepository.save(c3);
+
+			Orderstatus status1 = new Orderstatus("Tilaus toimitettu");
+			Orderstatus status2 = new Orderstatus("Tilaus peruttu");
+			orderstatusRepository.save(status1);
+			orderstatusRepository.save(status2);
+
+			Orderinfo oi1 = new Orderinfo(LocalDate.now(), c1, status1);
+			Orderinfo oi2 = new Orderinfo(LocalDate.now(), c3, status2);
+			orderinfoRepository.save(oi1);
+			orderinfoRepository.save(oi2);
+
+			ProductOrders po1 = new ProductOrders(oi1, p1);
+			ProductOrders po2 = new ProductOrders(oi2, p2);
+			productOrdersRepository.save(po1);
+			productOrdersRepository.save(po2);
 		};
 	}
 }
