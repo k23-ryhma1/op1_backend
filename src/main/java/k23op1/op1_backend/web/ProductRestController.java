@@ -51,5 +51,10 @@ public class ProductRestController {
         productRepository.deleteById(id);
         return productRepository.findAll();
     }
-    
+
+    // Palauttaa yhden valmistajan kaikki tuotteet
+    @GetMapping("/api/manufacturerproducts/{id}")
+    public Iterable<Product> getProductsByManufacturer(@PathVariable Long id) {
+        return productRepository.findByManufacturerId(id);
+    }
 }
