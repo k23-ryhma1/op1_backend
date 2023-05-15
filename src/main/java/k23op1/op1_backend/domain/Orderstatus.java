@@ -26,6 +26,8 @@ public class Orderstatus {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "orderstatus")
     private List<Orderinfo> orderinfo;
 
+    public Orderstatus() {}
+
     public Orderstatus(String orderstatus) {
         super();
         this.orderstatus = orderstatus;

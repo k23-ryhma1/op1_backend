@@ -40,7 +40,7 @@ public class Product {
 
 	@JsonIgnore
 	@OneToMany
-	private List<ProductOrders> productorders;
+	private List<Orderinfo> orderinfo;
 
     public Product() {
         super();

@@ -18,8 +18,6 @@ import k23op1.op1_backend.domain.OrderinfoRepository;
 import k23op1.op1_backend.domain.Orderstatus;
 import k23op1.op1_backend.domain.OrderstatusRepository;
 import k23op1.op1_backend.domain.Product;
-import k23op1.op1_backend.domain.ProductOrders;
-import k23op1.op1_backend.domain.ProductOrdersRepository;
 import k23op1.op1_backend.domain.ProductRepository;
 import k23op1.op1_backend.domain.Type;
 import k23op1.op1_backend.domain.TypeRepository;
@@ -39,8 +37,7 @@ public class Op1BackendApplication {
 			TypeRepository typeRepository,
 			CustomerRepository customerRepository, 
 			OrderstatusRepository orderstatusRepository,
-			OrderinfoRepository orderinfoRepository,
-			ProductOrdersRepository productOrdersRepository
+			OrderinfoRepository orderinfoRepository
 			) {
 		return (arg) -> {
 			Manufacturer m1 = new Manufacturer("Purina");
@@ -86,10 +83,6 @@ public class Op1BackendApplication {
 			orderinfoRepository.save(oi1);
 			orderinfoRepository.save(oi2);
 
-			ProductOrders po1 = new ProductOrders(oi1, p1);
-			ProductOrders po2 = new ProductOrders(oi2, p2);
-			productOrdersRepository.save(po1);
-			productOrdersRepository.save(po2);
 		};
 	}
 }

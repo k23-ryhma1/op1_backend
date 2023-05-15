@@ -29,10 +29,12 @@ public class Orderinfo {
 
     @JsonIgnore
     @OneToMany
-    private List<ProductOrders> productorders;
+    private List<Product> product;
 
     @ManyToOne
     private Orderstatus orderstatus;
+
+    public Orderinfo() {}
 
     public Orderinfo(LocalDate date, Customer customer, Orderstatus orderstatus) {
         this.date = date;
