@@ -15,13 +15,19 @@
 			<thead>
 				<tr>
 					<th>Order id</th>
+                    <th>Product name</th>
+                    <th>Product type</th>
+                    <th>Product price</th>
 					<th>Order status</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr th:each="orderinfo:${orderinfos}">
 					<td th:text="${orderinfo.id}"></td>
-					<td th:text="${orderinfo.orderstatus}">
+                    <td th:text="${orderinfo.product.name}"></td>
+                    <td th:text="${orderinfo.product.type.type}"></td>
+                    <td th:text="${orderinfo.product.price}"></td>
+					<td th:text="${orderinfo.orderstatus.orderstatus}">
 				</tr>
 			</tbody>
 		</table>
