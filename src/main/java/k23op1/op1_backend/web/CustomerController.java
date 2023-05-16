@@ -19,5 +19,4 @@ public class CustomerController {
         model.addAttribute("customers", customerRepository.findAll());
         return "listcustomers";
     }
-
 }

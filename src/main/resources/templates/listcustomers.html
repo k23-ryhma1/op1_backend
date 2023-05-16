@@ -26,6 +26,7 @@
 					<td th:text="${customer.lastName}">
 					<td th:text="${customer.phone}">
 					<td th:text="${customer.email}">
+					<td><a th:href="@{/orderinfo/{id}(id=${customer.id})}" class="btn btn-primary">List orders</a></td>
 				</tr>
 			</tbody>
 		</table>
