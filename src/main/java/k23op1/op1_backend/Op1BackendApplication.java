@@ -78,8 +78,8 @@ public class Op1BackendApplication {
 			orderstatusRepository.save(status1);
 			orderstatusRepository.save(status2);
 
-			Orderinfo oi1 = new Orderinfo(LocalDate.now(), c1, status1);
-			Orderinfo oi2 = new Orderinfo(LocalDate.now(), c3, status2);
+			Orderinfo oi1 = new Orderinfo(LocalDate.now(), c1, p1, status1);
+			Orderinfo oi2 = new Orderinfo(LocalDate.now(), c3, p2, status2);
 			orderinfoRepository.save(oi1);
 			orderinfoRepository.save(oi2);
 

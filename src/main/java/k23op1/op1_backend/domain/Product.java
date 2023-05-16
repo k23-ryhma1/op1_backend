@@ -40,7 +40,7 @@ public class Product {
 
 	@JsonIgnore
 	@OneToMany
-	private List<Orderinfo> orderinfo;
+	private List<Orderinfo> orderinfos;
 
     public Product() {
         super();
@@ -111,6 +111,15 @@ public class Product {
 	public int getQuantity() {
 		return quantity;
 	}
+
+	public List<Orderinfo> getOrderinfos() {
+		return orderinfos;
+	}
+
+	public void setOrderinfos(List<Orderinfo> orderinfos) {
+		this.orderinfos = orderinfos;
+	}
+
 
     @Override
 	public String toString() {

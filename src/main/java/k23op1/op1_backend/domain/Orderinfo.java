@@ -1,16 +1,12 @@
 package k23op1.op1_backend.domain;
 
 import java.time.LocalDate;
-import java.util.List;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
 import jakarta.validation.constraints.NotNull;
 
 
@@ -27,18 +23,20 @@ public class Orderinfo {
     @ManyToOne
     private Customer customer;
 
-    @JsonIgnore
-    @OneToMany
-    private List<Product> product;
+    @ManyToOne
+    private Product product;
 
     @ManyToOne
     private Orderstatus orderstatus;
 
-    public Orderinfo() {}
+    public Orderinfo() {
+        super();
+    }
 
-    public Orderinfo(LocalDate date, Customer customer, Orderstatus orderstatus) {
+    public Orderinfo(LocalDate date, Customer customer, Product product, Orderstatus orderstatus) {
         this.date = date;
         this.customer = customer;
+        this.product = product;
         this.orderstatus = orderstatus;
     }
 
@@ -64,6 +62,14 @@ public class Orderinfo {
 
     public void setCustomer(Customer customer) {
         this.customer = customer;
+    }
+    
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
     }
 
     public Orderstatus getOrderstatus() {

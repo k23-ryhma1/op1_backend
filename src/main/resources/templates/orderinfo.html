@@ -1,17 +1,14 @@
             <thead>
                 <tr>
                     <th>Order id</th>
-                    <th>Products</th>
-                    <th>Date</th>
+                    <th>Order status</th>
                     <th>Order status</th>
                 </tr>
             </thead>
             <tbody>
                 <tr th:each="orderinfo:${orderinfos}">
-                    <td th:text="${orderinfo.orderid}">
-                    <td th:text="${orderinfo.products}">
+                    <td th:text="${orderinfo.id}">
                     <td th:text="${orderinfo.orderstatus}">
-                    <td th:text="${orderinfo.email}">
                 </tr>
             </tbody>
         </table>
