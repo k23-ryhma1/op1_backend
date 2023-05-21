@@ -28,7 +28,7 @@ public class OrderinfoController {
     // Tuotteen muokkaus
     @GetMapping("/editorderstatus/{id}")
     public String editOrderstatus(@PathVariable("id") Long orderinfoId, Model model) {
-        model.addAttribute("orderstatus", orderinfoRepository.findById(orderinfoId));
+        model.addAttribute("orderinfo", orderinfoRepository.findById(orderinfoId));
         return "editorderstatus";
     }
 

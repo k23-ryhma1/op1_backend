@@ -14,5 +14,5 @@ public interface ProductRepository extends CrudRepository<Product, Long> {
 
     // Etsi tuotteet valmistajan id:n perusteella
     List<Product> findByManufacturerId(Long id);
-    
+
 }
