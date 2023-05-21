@@ -8,11 +8,11 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import jakarta.validation.constraints.NotNull;
-
+import jakarta.validation.constraints.Size;
 
 @Entity
 public class Orderinfo {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
@@ -26,14 +26,14 @@ public class Orderinfo {
     @ManyToOne
     private Product product;
 
-    @ManyToOne
-    private Orderstatus orderstatus;
+    @Size(min = 1, max = 50, message = "This field is required and cannot be empty.")
+    private String orderstatus;
 
     public Orderinfo() {
         super();
     }
 
-    public Orderinfo(LocalDate date, Customer customer, Product product, Orderstatus orderstatus) {
+    public Orderinfo(LocalDate date, Customer customer, Product product, String orderstatus) {
         this.date = date;
         this.customer = customer;
         this.product = product;
@@ -63,7 +63,7 @@ public class Orderinfo {
     public void setCustomer(Customer customer) {
         this.customer = customer;
     }
-    
+
     public Product getProduct() {
         return product;
     }
@@ -72,11 +72,11 @@ public class Orderinfo {
         this.product = product;
     }
 
-    public Orderstatus getOrderstatus() {
+    public String getOrderstatus() {
         return orderstatus;
     }
 
-    public void setOrderstatus(Orderstatus orderstatus) {
+    public void setOrderstatus(String orderstatus) {
         this.orderstatus = orderstatus;
     }
 }

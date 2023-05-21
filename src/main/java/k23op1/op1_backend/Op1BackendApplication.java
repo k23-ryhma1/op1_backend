@@ -15,8 +15,6 @@ import k23op1.op1_backend.domain.Manufacturer;
 import k23op1.op1_backend.domain.ManufacturerRepository;
 import k23op1.op1_backend.domain.Orderinfo;
 import k23op1.op1_backend.domain.OrderinfoRepository;
-import k23op1.op1_backend.domain.Orderstatus;
-import k23op1.op1_backend.domain.OrderstatusRepository;
 import k23op1.op1_backend.domain.Product;
 import k23op1.op1_backend.domain.ProductRepository;
 import k23op1.op1_backend.domain.Type;
@@ -31,14 +29,12 @@ public class Op1BackendApplication {
 
 	@Bean
 	public CommandLineRunner demo(
-			ProductRepository productRepository, 
+			ProductRepository productRepository,
 			ManufacturerRepository manufacturerRepository,
-			ClothingSizeRepository clothingSizeRepository, 
+			ClothingSizeRepository clothingSizeRepository,
 			TypeRepository typeRepository,
-			CustomerRepository customerRepository, 
-			OrderstatusRepository orderstatusRepository,
-			OrderinfoRepository orderinfoRepository
-			) {
+			CustomerRepository customerRepository,
+			OrderinfoRepository orderinfoRepository) {
 		return (arg) -> {
 			Manufacturer m1 = new Manufacturer("Purina");
 			Manufacturer m2 = new Manufacturer("Pedigree");
@@ -73,13 +69,8 @@ public class Op1BackendApplication {
 			customerRepository.save(c2);
 			customerRepository.save(c3);
 
-			Orderstatus status1 = new Orderstatus("Tilaus toimitettu");
-			Orderstatus status2 = new Orderstatus("Tilaus peruttu");
-			orderstatusRepository.save(status1);
-			orderstatusRepository.save(status2);
-
-			Orderinfo oi1 = new Orderinfo(LocalDate.now(), c1, p1, status1);
-			Orderinfo oi2 = new Orderinfo(LocalDate.now(), c3, p2, status2);
+			Orderinfo oi1 = new Orderinfo(LocalDate.now(), c1, p1, "Tilaus toimitettu");
+			Orderinfo oi2 = new Orderinfo(LocalDate.now(), c3, p2, "Tilaus peruttu");
 			orderinfoRepository.save(oi1);
 			orderinfoRepository.save(oi2);
 
