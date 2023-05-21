@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
+
+<head>
+	<title>Ompun ja Ranen kauppa</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+	<div class="text-center">
+		<a href="/" class="btn btn-success">Etusivu</a>
+    <h2>Edit Order</h2>
+    <form th:action="@{/saveorderstatus}" th:object="${orderinfo}" action="#" method="post">
+        <input type="hidden" th:field="*{id}" class="form-control" />
+
+		<div>
+            <label>Order id:</label>
+            <input type="text" th:value="${orderinfo.id}" readonly="readonly" />
+        </div>
+
+        <div>
+            <label>Product name:</label>
+            <input type="text" th:value="${orderinfo.product.name}" readonly="readonly" />
+        </div>
+
+        <div>
+            <label>Product type:</label>
+            <input type="text" th:value="${orderinfo.type.type}" readonly="readonly" />
+        </div>
+
+        <div>
+            <label>Product price:</label>
+            <input type="text" th:value="${orderinfo.product.price}" readonly="readonly" />
+        </div>
+
+			<div>
+				<label for="orderstatus">Order status</label>
+				<input type="text" id="orderstatus" th:field="*{orderstatus}">
+				<div th:if="${#fields.hasErrors('orderstatus')}" th:errors="*{orderstatus}">Error</div>
+			</div>
+			
+            <a href="/listmanufacturers"><input type="button" name="return-button" value="Back" />
+                <input type="submit" value="Save" />
+        </form>
+    </div>
+</body>
+</html>

@@ -19,6 +19,7 @@
                     <th>Product type</th>
                     <th>Product price</th>
 					<th>Order status</th>
+					<th>Change status</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -27,7 +28,8 @@
                     <td th:text="${orderinfo.product.name}"></td>
                     <td th:text="${orderinfo.product.type.type}"></td>
                     <td th:text="${orderinfo.product.price}"></td>
-					<td th:text="${orderinfo.orderstatus.orderstatus}">
+					<td th:text="${orderinfo.orderstatus}"></td>
+					<td><a th:href="@{/editorderstatus/{id}(id=${orderinfo.id})}" class="btn btn-primary">Edit order status</a></td>
 				</tr>
 			</tbody>
 		</table>
@@ -35,3 +37,4 @@
 	</div>
 </body>
 
+</html>
