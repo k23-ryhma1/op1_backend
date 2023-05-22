@@ -1,24 +1,24 @@
 package k23op1.op1_backend;
 
-import java.time.LocalDate;
+// import java.time.LocalDate;
 
-import org.springframework.boot.CommandLineRunner;
+// import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
+// import org.springframework.context.annotation.Bean;
 
-import k23op1.op1_backend.domain.ClothingSize;
-import k23op1.op1_backend.domain.ClothingSizeRepository;
-import k23op1.op1_backend.domain.Customer;
-import k23op1.op1_backend.domain.CustomerRepository;
-import k23op1.op1_backend.domain.Manufacturer;
-import k23op1.op1_backend.domain.ManufacturerRepository;
-import k23op1.op1_backend.domain.Orderinfo;
-import k23op1.op1_backend.domain.OrderinfoRepository;
-import k23op1.op1_backend.domain.Product;
-import k23op1.op1_backend.domain.ProductRepository;
-import k23op1.op1_backend.domain.Type;
-import k23op1.op1_backend.domain.TypeRepository;
+// import k23op1.op1_backend.domain.ClothingSize;
+// import k23op1.op1_backend.domain.ClothingSizeRepository;
+// import k23op1.op1_backend.domain.Customer;
+// import k23op1.op1_backend.domain.CustomerRepository;
+// import k23op1.op1_backend.domain.Manufacturer;
+// import k23op1.op1_backend.domain.ManufacturerRepository;
+// import k23op1.op1_backend.domain.Orderinfo;
+// import k23op1.op1_backend.domain.OrderinfoRepository;
+// import k23op1.op1_backend.domain.Product;
+// import k23op1.op1_backend.domain.ProductRepository;
+// import k23op1.op1_backend.domain.Type;
+// import k23op1.op1_backend.domain.TypeRepository;
 
 @SpringBootApplication
 public class Op1BackendApplication {
@@ -27,7 +27,7 @@ public class Op1BackendApplication {
 		SpringApplication.run(Op1BackendApplication.class, args);
 	}
 
-	@Bean
+/* 	@Bean
 	public CommandLineRunner demo(
 			ProductRepository productRepository,
 			ManufacturerRepository manufacturerRepository,
@@ -75,5 +75,5 @@ public class Op1BackendApplication {
 			orderinfoRepository.save(oi2);
 
 		};
-	}
+	} */
 }
